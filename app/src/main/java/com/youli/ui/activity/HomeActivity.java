@@ -21,6 +21,7 @@ import com.youli.app.AppActivity;
 import com.youli.app.AppFragment;
 import com.youli.manager.ActivityManager;
 import com.youli.other.DoubleClickHelper;
+import com.youli.other.QRCodeScanner;
 import com.youli.ui.adapter.NavigationAdapter;
 import com.youli.ui.fragment.FindFragment;
 import com.youli.ui.fragment.HomeFragment;
@@ -44,6 +45,11 @@ public final class HomeActivity extends AppActivity
 
     private NavigationAdapter mNavigationAdapter;
     private FragmentPagerAdapter<AppFragment<?>> mPagerAdapter;
+
+    //创建scan对象
+//    Context context = this;
+//    QRCodeScanner scanner = new QRCodeScanner(context);
+
 
     public static void start(Context context) {
         start(context, HomeFragment.class);
@@ -196,22 +202,23 @@ public final class HomeActivity extends AppActivity
 //        }
 //    }
 
+
 // 使用自带浏览器打开url页面
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if(result != null) {
-            if(result.getContents() == null) {
-                Toast.makeText(getActivity(), "扫码取消！", Toast.LENGTH_LONG).show();
-            } else {
-                final Uri uri=Uri.parse(result.getContents());
-                Intent intent=new Intent(Intent.ACTION_VIEW,uri);
-                startActivity(intent);
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+//        if(result != null) {
+//            if(result.getContents() == null) {
+//                Toast.makeText(getActivity(), "扫码取消！", Toast.LENGTH_LONG).show();
+//            } else {
+//                final Uri uri=Uri.parse(result.getContents());
+//                Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+//                startActivity(intent);
+//            }
+//        } else {
+//            super.onActivityResult(requestCode, resultCode, data);
+//        }
+//    }
 
 
 //以下是使用app自己带的页面显示网址
@@ -232,4 +239,14 @@ public final class HomeActivity extends AppActivity
 //            super.onActivityResult(requestCode, resultCode, data);
 //        }
 //    }
+
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        scanner.handleScanResult(requestCode, resultCode, data);
+//    }
+
+
 }
+

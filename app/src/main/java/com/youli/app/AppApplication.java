@@ -155,7 +155,6 @@ public final class AppApplication extends Application {
         if (AppConfig.isLogEnable()) {
             Timber.plant(new DebugLoggerTree());
         }
-
         // 注册网络状态变化监听
         ConnectivityManager connectivityManager = ContextCompat.getSystemService(application, ConnectivityManager.class);
         if (connectivityManager != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

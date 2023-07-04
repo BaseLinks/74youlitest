@@ -1,8 +1,10 @@
 package com.youli.ui.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,9 +24,12 @@ import com.youli.R;
 import com.youli.app.AppFragment;
 import com.youli.app.TitleBarFragment;
 import com.youli.other.CaptureAct;
+import com.youli.other.QRCodeScanner;
 import com.youli.ui.activity.HomeActivity;
 import com.youli.ui.adapter.TabAdapter;
 import com.youli.widget.XCollapsingToolbarLayout;
+
+import java.util.Scanner;
 
 /**
  *    author : Android 轮子哥
@@ -48,6 +53,10 @@ public final class HomeFragment extends TitleBarFragment<HomeActivity>
 
     private TabAdapter mTabAdapter;
     private FragmentPagerAdapter<AppFragment<?>> mPagerAdapter;
+
+    //创建Scan对象 实现扫码功能
+    Context context = getActivity();
+    QRCodeScanner scanner = new QRCodeScanner(context);
 
 
 
@@ -90,30 +99,32 @@ public final class HomeFragment extends TitleBarFragment<HomeActivity>
         mSearchView.setOnClickListener(this);
     }
 
+//    Scanner scanner = this.scanner ;
     @Override
     public void onClick(View v) {
-        scan();
+        scanner.startScan(getActivity());
+ //       scan();
     }
 
     /**
      * 扫码方法
      */
-    private void scan() {
-        toast("scan");
-        IntentIntegrator integrator = new IntentIntegrator(getActivity());
-        // 设置要扫描的条码类型，ONE_D_CODE_TYPES：一维码，QR_CODE_TYPES-二维码
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-        // 设置竖屏方向
-        //integrator.setCaptureActivity(CaptureAct.class);
-        integrator.setPrompt("扫描条码");
-        integrator.setOrientationLocked(false);
-        integrator.setCameraId(0);  // 使用默认的相机
-        integrator.setBeepEnabled(false); // 扫到码后播放提示音
-        integrator.setBarcodeImageEnabled(true);
-        integrator.initiateScan();
-
-
-    }
+//    private void scan() {
+//        toast("scan");
+//        IntentIntegrator integrator = new IntentIntegrator(getActivity());
+//        // 设置要扫描的条码类型，ONE_D_CODE_TYPES：一维码，QR_CODE_TYPES-二维码
+//        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+//        // 设置竖屏方向
+//        //integrator.setCaptureActivity(CaptureAct.class);
+//        integrator.setPrompt("扫描条码");
+//        integrator.setOrientationLocked(false);
+//        integrator.setCameraId(0);  // 使用默认的相机
+//        integrator.setBeepEnabled(false); // 扫到码后播放提示音
+//        integrator.setBarcodeImageEnabled(true);
+//        integrator.initiateScan();
+//
+//
+//    }
 
 
     @Override
@@ -185,5 +196,9 @@ public final class HomeFragment extends TitleBarFragment<HomeActivity>
         mTabAdapter.setOnTabListener(null);
     }
 
+
+    public void requestData(String scannedData) {
+        Log.d("scannedData", "requestData: " + scannedData);
+    }
 
 }
