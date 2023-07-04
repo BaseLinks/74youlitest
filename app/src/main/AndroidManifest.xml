@@ -250,6 +250,10 @@
             android:exported="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <!-- 扫码结果 -->
+        <activity
+            android:name="com.youli.ui.activity.WebActivity" />
+
     </application>
 
 

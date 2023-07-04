@@ -19,7 +19,7 @@
         android:singleLine="true"
         android:textColor="@color/black80"
         android:textSize="@dimen/sp_15"
-        tools:text="条目" />
+        tools:text="项目" />
 
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/tv_select_checkbox"

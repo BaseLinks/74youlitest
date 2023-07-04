@@ -3,6 +3,7 @@ package com.youli.ui.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -181,6 +182,21 @@ public final class HomeActivity extends AppActivity
         mNavigationAdapter.setOnNavigationListener(null);
     }
 
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+//        if(result != null) {
+//            if(result.getContents() == null) {
+//                Toast.makeText(getActivity(), "扫码取消！", Toast.LENGTH_LONG).show();
+//            } else {
+//                Toast.makeText(getActivity(), "扫描成功，条码值: " + result.getContents(), Toast.LENGTH_LONG).show();
+//            }
+//        } else {
+//            super.onActivityResult(requestCode, resultCode, data);
+//        }
+//    }
+
+// 使用自带浏览器打开url页面
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -188,10 +204,32 @@ public final class HomeActivity extends AppActivity
             if(result.getContents() == null) {
                 Toast.makeText(getActivity(), "扫码取消！", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(getActivity(), "扫描成功，条码值: " + result.getContents(), Toast.LENGTH_LONG).show();
+                final Uri uri=Uri.parse(result.getContents());
+                Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+                startActivity(intent);
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
+
+//以下是使用app自己带的页面显示网址
+
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+//        if(result != null) {
+//            if(result.getContents() == null) {
+//                Toast.makeText(getActivity(), "扫码取消！", Toast.LENGTH_LONG).show();
+//            } else {
+//                toast(result.getContents());
+//                Intent intent=new Intent(HomeActivity.this, WebActivity.class);
+//                intent.putExtra("url",result.getContents());
+//                startActivity(intent);
+//            }
+//        } else {
+//            super.onActivityResult(requestCode, resultCode, data);
+//        }
+//    }
 }

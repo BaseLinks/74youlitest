@@ -258,4 +258,8 @@
     <string name="camera_launch_fail">无法启动相机</string>
     <string name="camera_image_error">目标地址错误</string>
 
+    <!-- 网页 -->
+    <string name="result_title">扫描结果</string>
+    <string name="web_result"></string>
+
 </resources>

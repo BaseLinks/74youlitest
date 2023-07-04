@@ -17,7 +17,7 @@
         android:singleLine="true"
         android:textColor="@color/common_confirm_text_color"
         android:textSize="@dimen/sp_14"
-        tools:text="条目" />
+        tools:text="项目" />
 
     <View
         android:id="@+id/v_menu_line"

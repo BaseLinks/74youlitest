@@ -86,6 +86,7 @@ public final class HomeFragment extends TitleBarFragment<HomeActivity>
         //设置渐变监听
         mCollapsingToolbarLayout.setOnScrimsListener(this);
 
+        // 扫码按键监听
         mSearchView.setOnClickListener(this);
     }
 
@@ -103,7 +104,7 @@ public final class HomeFragment extends TitleBarFragment<HomeActivity>
         // 设置要扫描的条码类型，ONE_D_CODE_TYPES：一维码，QR_CODE_TYPES-二维码
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
         // 设置竖屏方向
-        integrator.setCaptureActivity(CaptureAct.class);
+        //integrator.setCaptureActivity(CaptureAct.class);
         integrator.setPrompt("扫描条码");
         integrator.setOrientationLocked(false);
         integrator.setCameraId(0);  // 使用默认的相机

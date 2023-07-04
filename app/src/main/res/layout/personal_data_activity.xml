@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         app:bar_leftText="@string/personal_data_name"
         app:bar_rightTextHint="@string/personal_data_name_hint"
-        tools:bar_rightText="Android 轮子哥" />
+        tools:bar_rightText="CK family" />
 
     <com.hjq.widget.layout.SettingBar
         android:id="@+id/sb_person_data_address"
