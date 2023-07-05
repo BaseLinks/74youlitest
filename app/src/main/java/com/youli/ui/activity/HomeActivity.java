@@ -1,5 +1,6 @@
 package com.youli.ui.activity;
 
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -203,7 +204,7 @@ public final class HomeActivity extends AppActivity
 //    }
 
 
-// 使用自带浏览器打开url页面
+ //使用自带浏览器打开url页面
 //    @Override
 //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -241,12 +242,23 @@ public final class HomeActivity extends AppActivity
 //    }
 
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        scanner.handleScanResult(requestCode, resultCode, data);
-//    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        String scannedData = result.getContents();
+        requestDataListener.requestData(scannedData);
+//        handleScanResult(requestCode, resultCode, data);
+    }
+    public QRCodeScanner.requestData requestDataListener;
 
+    public void setRequestDataListener(QRCodeScanner.requestData requestDataListener){
+        this.requestDataListener = requestDataListener;
+    }
+
+    public interface requestData{
+        void requestData(String data);
+    }
 
 }
 

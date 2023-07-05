@@ -97,6 +97,8 @@ public final class HomeFragment extends TitleBarFragment<HomeActivity>
 
         // 扫码按键监听
         mSearchView.setOnClickListener(this);
+
+        scanner.setRequestDataListener(data -> Toast.makeText(getContext(), data, Toast.LENGTH_SHORT).show());
     }
 
 //    Scanner scanner = this.scanner ;

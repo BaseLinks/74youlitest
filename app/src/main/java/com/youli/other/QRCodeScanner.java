@@ -3,14 +3,17 @@ package com.youli.other;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.youli.ui.activity.HomeActivity;
 import com.youli.ui.fragment.HomeFragment;
 
 public class QRCodeScanner {
     private Context context;
+    private HomeActivity homeActivity;
 //    HomeFragment homeFragment = HomeFragment.newInstance();
 
     public QRCodeScanner(Context context) {
@@ -34,14 +37,25 @@ public class QRCodeScanner {
         integrator.setBeepEnabled(false); // 扫到码后播放提示音
         integrator.setBarcodeImageEnabled(true);
         integrator.initiateScan();
+//        requestDataListener.requestData("oooooo");
+        homeActivity = (HomeActivity) activity;
+        homeActivity.setRequestDataListener(new requestData() {
+            @Override
+            public void requestData(String data) {
+                Toast.makeText(activity, data, Toast.LENGTH_SHORT).show();
+                final Uri uri= Uri.parse(data);
+                Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+                (activity).startActivity(intent);
+            }
+        });
     }
 
     public void handleScanResult(int requestCode, int resultCode, Intent intent) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (result != null && result.getContents() != null) {
             String scannedData = result.getContents();
-            showToast(scannedData);
-
+//            showToast(scannedData);
+//            requestDataListener.requestData(scannedData);
 //            homeFragment.requestData(scannedData);
         }
 
@@ -50,4 +64,17 @@ public class QRCodeScanner {
     private void showToast(String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
+
+
+    public requestData requestDataListener;
+
+    public void setRequestDataListener(requestData requestDataListener) {
+        this.requestDataListener = requestDataListener;
+    }
+
+    public interface requestData {
+        void requestData(String data);
+    }
 }
+
+
