@@ -30,10 +30,10 @@ import com.youli.ui.fragment.MessageFragment;
 import com.youli.ui.fragment.MineFragment;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2018/10/18
- *    desc   : 首页界面
+ * author : Android 轮子哥
+ * github : https://github.com/getActivity/AndroidProject
+ * time   : 2018/10/18
+ * desc   : 首页界面
  */
 public final class HomeActivity extends AppActivity
         implements NavigationAdapter.OnNavigationListener {
@@ -129,7 +129,7 @@ public final class HomeActivity extends AppActivity
             case 0:
             case 1:
             case 2:
-            //case 3:
+                //case 3:
                 mViewPager.setCurrentItem(fragmentIndex);
                 mNavigationAdapter.setSelectedPosition(fragmentIndex);
                 break;
@@ -148,7 +148,7 @@ public final class HomeActivity extends AppActivity
             case 0:
             case 1:
             case 2:
-            //case 3:
+                //case 3:
                 mViewPager.setCurrentItem(position);
                 return true;
             default:
@@ -204,7 +204,7 @@ public final class HomeActivity extends AppActivity
 //    }
 
 
- //使用自带浏览器打开url页面
+    //使用自带浏览器打开url页面
 //    @Override
 //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -250,15 +250,17 @@ public final class HomeActivity extends AppActivity
         requestDataListener.requestData(scannedData);
 //        handleScanResult(requestCode, resultCode, data);
     }
+
     public QRCodeScanner.requestData requestDataListener;
 
-    public void setRequestDataListener(QRCodeScanner.requestData requestDataListener){
+    public void setRequestDataListener(QRCodeScanner.requestData requestDataListener) {
         this.requestDataListener = requestDataListener;
     }
 
-    public interface requestData{
-        void requestData(String data);
-    }
+
+//    public interface requestData{
+//        void requestData(String data);
+//    }
 
 }
 
