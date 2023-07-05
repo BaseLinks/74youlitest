@@ -9,6 +9,9 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.youli.ui.activity.HomeActivity;
+
+import com.youli.ui.activity.ScannerActivity;
+
 import com.youli.ui.fragment.HomeFragment;
 
 public class QRCodeScanner {
@@ -23,7 +26,11 @@ public class QRCodeScanner {
     public void startScan(Activity activity) {
         IntentIntegrator integrator = new IntentIntegrator(activity);
 
+
 //        integrator.setCaptureActivity(MainActivity2.class);
+
+        integrator.setCaptureActivity(ScannerActivity.class);
+
         integrator.setOrientationLocked(false);
         integrator.initiateScan();
         // 设置要扫描的条码类型，ONE_D_CODE_TYPES：一维码，QR_CODE_TYPES-二维码
@@ -42,10 +49,29 @@ public class QRCodeScanner {
         homeActivity.setRequestDataListener(new requestData() {
             @Override
             public void requestData(String data) {
+
+
+                if(data == null){
+                    Toast.makeText(activity, "扫码取消", Toast.LENGTH_SHORT).show();
+                } else{
+
                 Toast.makeText(activity, data, Toast.LENGTH_SHORT).show();
                 final Uri uri= Uri.parse(data);
                 Intent intent=new Intent(Intent.ACTION_VIEW,uri);
                 (activity).startActivity(intent);
+       }
+                //        if(result != null) {
+//            if(result.getContents() == null) {
+//                Toast.makeText(getActivity(), "扫码取消！", Toast.LENGTH_LONG).show();
+//            } else {
+//                final Uri uri=Uri.parse(result.getContents());
+//                Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+//                startActivity(intent);
+//            }
+//        } else {
+//            super.onActivityResult(requestCode, resultCode, data);
+//        }
+
             }
         });
     }

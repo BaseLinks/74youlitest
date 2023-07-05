@@ -250,6 +250,13 @@
             android:exported="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <!-- 扫码处理 -->
+        <activity
+            android:name="com.youli.ui.activity.ScannerActivity"
+            android:exported="false" />
+
+
+
         <!-- 扫码结果 -->
         <activity
             android:name="com.youli.ui.activity.WebActivity" />
