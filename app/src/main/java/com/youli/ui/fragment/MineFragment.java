@@ -51,7 +51,7 @@ public final class MineFragment extends TitleBarFragment<HomeActivity> {
 
     @Override
     protected void initView() {
-        setOnClickListener(R.id.btn_mine_about, R.id.btn_mine_pay);
+            setOnClickListener(R.id.btn_mine_about, R.id.btn_mine_pay);
     }
 
     @Override
@@ -67,7 +67,8 @@ public final class MineFragment extends TitleBarFragment<HomeActivity> {
 
             startActivity(AboutActivity.class);
 
-        } else if (viewId == R.id.btn_mine_pay) {
+        }
+        else if (viewId == R.id.btn_mine_pay) {
 
             new MessageDialog.Builder(getAttachActivity())
                     .setTitle("捐赠")
@@ -76,7 +77,7 @@ public final class MineFragment extends TitleBarFragment<HomeActivity> {
                     .setCancel(null)
                     //.setAutoDismiss(false)
                     .setListener(dialog -> {
-                        BrowserActivity.start(getAttachActivity(), "https://github.com/getActivity/Donate");
+                        BrowserActivity.start(getAttachActivity(), "https://blog.csdn.net/ckfamily2023");
                         toast("AndroidProject 因为有你的支持而能够不断更新、完善，非常感谢支持！");
                         postDelayed(() -> {
                             try {

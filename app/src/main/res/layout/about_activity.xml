@@ -45,7 +45,7 @@
             android:autoLink="all"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="@dimen/dp_20"
-            android:text="此处是介绍\n  可以放一个网址"
+            android:text="https://blog.csdn.net/ckfamily2023"
             android:textColor="#222222"
             android:textSize="@dimen/sp_14" />
 

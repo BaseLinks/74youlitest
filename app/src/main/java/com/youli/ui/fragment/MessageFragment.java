@@ -58,11 +58,13 @@ public final class MessageFragment extends TitleBarFragment<HomeActivity> {
 
             requestPermission();
 
-        } else if (viewId == R.id.btn_message_setting) {
-
-            XXPermissions.startPermissionActivity(this);
-
-        } else if (viewId == R.id.btn_message_tab) {
+        }
+//        else if (viewId == R.id.btn_message_setting) {
+//
+//            XXPermissions.startPermissionActivity(this);
+//
+//        }
+          else if (viewId == R.id.btn_message_tab) {
 
             HomeActivity.start(getActivity(), HomeFragment.class);
         }
