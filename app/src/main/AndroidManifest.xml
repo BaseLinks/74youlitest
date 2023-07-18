@@ -34,7 +34,7 @@
     <application
         android:name="com.youli.app.AppApplication"
         android:allowBackup="false"
-        android:icon="@mipmap/launcher_ic"
+        android:icon="@mipmap/youli"
         android:label="${app_name}"
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
