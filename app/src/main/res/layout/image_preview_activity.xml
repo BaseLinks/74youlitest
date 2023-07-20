@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#363636"
-    tools:context="com.youli.ui.activity.ImagePreviewActivity">
+    tools:context="com.youlikeji2023.ui.activity.ImagePreviewActivity">
 
-    <com.youli.widget.PhotoViewPager
+    <com.youlikeji2023.widget.PhotoViewPager
         android:id="@+id/vp_image_preview_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

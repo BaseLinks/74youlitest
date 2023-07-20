@@ -5,5 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/dp_50"
-    tools:context="com.youli.ui.adapter.GuideAdapter"
+    tools:context="com.youlikeji2023.ui.adapter.GuideAdapter"
     tools:src="@drawable/guide_1_bg" />

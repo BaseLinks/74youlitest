@@ -6,6 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="horizontal"
-    tools:context="com.youli.ui.popup.CopyPopup">
+    tools:context="com.youlikeji2023.ui.popup.CopyPopup">
 
 </LinearLayout>

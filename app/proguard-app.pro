@@ -5,17 +5,17 @@
 #-libraryjars libs/xxxxxxxxx.jar
 
 # 不混淆这个包下的类
--keep class com.youli.http.api.** {
+-keep class com.youlikeji2023.http.api.** {
     <fields>;
 }
--keep class com.youli.http.response.** {
+-keep class com.youlikeji2023.http.response.** {
     <fields>;
 }
--keep class com.youli.http.model.** {
+-keep class com.youlikeji2023.http.model.** {
     <fields>;
 }
 
 # 不混淆被 Log 注解的方法信息
 -keepclassmembernames class ** {
-    @com.youli.aop.Log <methods>;
+    @com.youlikeji2023.aop.Log <methods>;
 }

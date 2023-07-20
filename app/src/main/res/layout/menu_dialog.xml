@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal|bottom"
     android:orientation="vertical"
-    tools:context="com.youli.ui.dialog.MenuDialog">
+    tools:context="com.youlikeji2023.ui.dialog.MenuDialog">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

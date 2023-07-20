@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.youli.widget.StatusLayout
+<com.youlikeji2023.widget.StatusLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/hl_browser_hint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.youli.ui.fragment.BrowserFragment">
+    tools:context="com.youlikeji2023.ui.fragment.BrowserFragment">
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
         android:id="@+id/sl_browser_refresh"
@@ -17,11 +17,11 @@
         app:srlEnablePreviewInEditMode="false"
         app:srlPrimaryColor="#444444">
 
-        <com.youli.widget.BrowserView
+        <com.youlikeji2023.widget.BrowserView
             android:id="@+id/wv_browser_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
-</com.youli.widget.StatusLayout>
+</com.youlikeji2023.widget.StatusLayout>

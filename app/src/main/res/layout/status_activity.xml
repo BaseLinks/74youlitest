@@ -5,25 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.youli.ui.activity.StatusActivity">
+    tools:context="com.youlikeji2023.ui.activity.StatusActivity">
 
     <com.hjq.bar.TitleBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="界面状态案例" />
 
-    <com.youli.widget.StatusLayout
+    <com.youlikeji2023.widget.StatusLayout
         android:id="@+id/hl_status_hint"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <fragment
-            android:name="com.youli.ui.fragment.StatusFragment"
+            android:name="com.youlikeji2023.ui.fragment.StatusFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:ignore="MissingId"
             tools:layout="@layout/status_fragment" />
 
-    </com.youli.widget.StatusLayout>
+    </com.youlikeji2023.widget.StatusLayout>
 
 </LinearLayout>
